@@ -1,0 +1,1 @@
+{"time": "2026-07-24T07:36:48.466815+00:00", "check_number": 1, "pair": "BTC/USDT", "exchange": "bybit", "decision": "ERROR", "error": "bybit GET https://api.bybit.com/v5/market/instruments-info?category=spot 403 Forbidden {\n    error:The Amazon CloudFront distribution is configured to block access from your country\n}"}
