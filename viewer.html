@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TrailBlazer Status</title>
+<style>
+  body { background:#080808; color:#F5F0E8; font-family:'DM Mono',monospace; margin:0; padding:16px; }
+  .card { background:#141414; border:1px solid #2A2218; border-radius:16px; padding:16px; margin-bottom:12px; }
+  .label { font-size:11px; color:#9E8E6E; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; }
+  .clock { font-size:32px; font-weight:800; color:#D4AF37; font-family:monospace; }
+  .row { display:flex; justify-content:space-between; align-items:center; }
+  .green { color:#00C853; } .red { color:#FF3D57; } .amber { color:#FFB300; }
+  h1 { font-size:18px; }
+</style>
+</head>
+<body>
+<h1>⚡ TrailBlazer — Status (v0.3)</h1>
+
+<div class="card">
+  <div class="label">⏱ Next Check In</div>
+  <div class="clock" id="countdown">--:--</div>
+  <div style="font-size:12px;color:#9E8E6E;margin-top:6px;" id="nextTime">Loading...</div>
+</div>
+
+<div class="card">
+  <div class="row">
+    <div>
+      <div class="label">Last Checked</div>
+      <div id="lastChecked" style="font-size:14px;">--</div>
+    </div>
+    <div>
+      <div class="label">Checks So Far</div>
+      <div id="checkCount" style="font-size:20px;font-weight:800;">--</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="label">Status</div>
+  <div id="phase" style="font-size:16px;font-weight:700;">--</div>
+  <div id="lastAction" style="font-size:12px;color:#9E8E6E;margin-top:8px;">--</div>
+</div>
+
+<div class="card">
+  <div class="row">
+    <div><div class="label">Balance</div><div id="balance" style="font-size:18px;font-weight:800;">--</div></div>
+    <div><div class="label">Wins/Losses</div><div id="wl" style="font-size:18px;font-weight:800;">--</div></div>
+  </div>
+</div>
+
+<script>
+const STATE_URL = "https://raw.githubusercontent.com/Shure-Bot/trailblazer-actions/main/state.json";
+
+let nextCheckTime = null;
+
+function fmtTime(iso) {
+  if (!iso) return "--";
+  return new Date(iso).toLocaleString();
+}
+
+function tickCountdown() {
+  if (!nextCheckTime) return;
+  const diff = nextCheckTime - Date.now();
+  const el = document.getElementById("countdown");
+  if (diff <= 0) { el.textContent = "Checking now..."; return; }
+  const mins = Math.floor(diff / 60000);
+  const secs = Math.floor((diff % 60000) / 1000);
+  el.textContent = `${mins}:${secs.toString().padStart(2,"0")}`;
+}
+
+async function loadState() {
+  try {
+    const res = await fetch(STATE_URL + "?t=" + Date.now());
+    const s = await res.json();
+
+    document.getElementById("lastChecked").textContent = fmtTime(s.last_checked);
+    document.getElementById("checkCount").textContent = s.check_count ?? "0";
+    document.getElementById("phase").textContent = s.phase === "in_position" ? "🚀 In Position" : "👁 Watching Market";
+    document.getElementById("lastAction").textContent = s.last_action || "No trades yet.";
+    document.getElementById("balance").textContent = "$" + (s.balance ?? 0).toFixed(2);
+    document.getElementById("wl").textContent = `${s.wins ?? 0}W / ${s.losses ?? 0}L`;
+    document.getElementById("nextTime").textContent = "Next check: " + fmtTime(s.next_check_due);
+
+    nextCheckTime = s.next_check_due ? new Date(s.next_check_due).getTime() : null;
+  } catch (e) {
+    document.getElementById("lastAction").textContent = "Could not load state yet — bot may not have run for the first time.";
+  }
+}
+
+loadState();
+setInterval(tickCountdown, 1000);
+setInterval(loadState, 30000);
+</script>
+</body>
+    </html>
