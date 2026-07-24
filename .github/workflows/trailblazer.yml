@@ -1,0 +1,35 @@
+name: TrailBlazer Scheduled Check
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run TrailBlazer check
+        run: python bot.py
+
+      - name: Commit updated state and logs
+        run: |
+          git config user.name "TrailBlazer Bot"
+          git config user.email "actions@github.com"
+          git add state.json logs.jsonl
+          git diff --quiet && git diff --staged --quiet || git commit -m "TrailBlazer check $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
