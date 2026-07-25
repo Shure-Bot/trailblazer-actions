@@ -22,3 +22,4 @@
 {"time": "2026-07-25T18:27:20.241753+00:00", "check_number": 22, "pair": "BTC/USDT", "exchange": "kucoin", "decision": "ERROR", "error": "'kucoin' object has no attribute 'close'"}
 {"time": "2026-07-25T19:45:47.897574+00:00", "check_number": 23, "pair": "BTC/USDT", "exchange": "kucoin", "decision": "ERROR", "error": "'kucoin' object has no attribute 'close'"}
 {"time": "2026-07-25T20:55:16.193630+00:00", "check_number": 24, "pair": "BTC/USDT", "exchange": "kucoin", "price": 64334.8, "phase": "watching", "lowest_seen": 64334.8, "buy_trigger": 65299.822, "decision": "NO_TRADE", "reason": "Price has not reached trailing buy trigger yet."}
+{"time": "2026-07-25T21:58:31.474409+00:00", "check_number": 25, "pair": "BTC/USDT", "exchange": "kucoin", "price": 64341.8, "phase": "watching", "lowest_seen": 64334.8, "buy_trigger": 65299.822, "decision": "NO_TRADE", "reason": "Price has not reached trailing buy trigger yet."}
