@@ -18,3 +18,4 @@
 {"time": "2026-07-25T13:38:28.561034+00:00", "check_number": 18, "pair": "BTC/USDT", "exchange": "kucoin", "decision": "ERROR", "error": "'kucoin' object has no attribute 'close'"}
 {"time": "2026-07-25T14:49:28.263481+00:00", "check_number": 19, "pair": "BTC/USDT", "exchange": "kucoin", "decision": "ERROR", "error": "'kucoin' object has no attribute 'close'"}
 {"time": "2026-07-25T16:05:46.022169+00:00", "check_number": 20, "pair": "BTC/USDT", "exchange": "kucoin", "decision": "ERROR", "error": "'kucoin' object has no attribute 'close'"}
+{"time": "2026-07-25T17:16:25.743195+00:00", "check_number": 21, "pair": "BTC/USDT", "exchange": "kucoin", "decision": "ERROR", "error": "'kucoin' object has no attribute 'close'"}
