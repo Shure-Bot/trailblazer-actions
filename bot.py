@@ -71,7 +71,7 @@ def fetch_price(exchange_name, pair):
     exchange_class = getattr(ccxt, exchange_name)
     exchange = exchange_class({"enableRateLimit": True})
     ticker = exchange.fetch_ticker(pair)
-    exchange.close()
+    
     return ticker["last"]
 
 
