@@ -8,8 +8,8 @@
   "losses": 0,
   "trades": [],
   "last_action": "No trades yet.",
-  "last_checked": "2026-07-25T14:49:28.263481+00:00",
-  "next_check_due": "2026-07-25T15:04:28.263481+00:00",
-  "check_count": 19,
+  "last_checked": "2026-07-25T16:05:46.022169+00:00",
+  "next_check_due": "2026-07-25T16:20:46.022169+00:00",
+  "check_count": 20,
   "last_error": "'kucoin' object has no attribute 'close'"
 }
