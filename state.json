@@ -1,6 +1,6 @@
 {
   "phase": "watching",
-  "low": null,
+  "low": 64334.8,
   "high": null,
   "entry": null,
   "balance": 20.0,
@@ -8,8 +8,8 @@
   "losses": 0,
   "trades": [],
   "last_action": "No trades yet.",
-  "last_checked": "2026-07-25T19:45:47.897574+00:00",
-  "next_check_due": "2026-07-25T20:00:47.897574+00:00",
-  "check_count": 23,
-  "last_error": "'kucoin' object has no attribute 'close'"
+  "last_checked": "2026-07-25T20:55:16.193630+00:00",
+  "next_check_due": "2026-07-25T21:10:16.193630+00:00",
+  "check_count": 24,
+  "last_error": null
 }
