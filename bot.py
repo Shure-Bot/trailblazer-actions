@@ -95,10 +95,12 @@ def main():
     }
 
     try:
-        price = fetch_price(CONFIG["exchange"], CONFIG["pair"])state["last_error"] = None
+        price = fetch_price(CONFIG["exchange"], CONFIG["pair"])
+        state["last_error"] = None
     except Exception as e:
         log["decision"] = "ERROR"
-        log["error"] = str(e)state["last_error"] = str(e)[:200]
+        log["error"] = str(e)
+        state["last_error"] = str(e)[:200]
         log_entry(log)
         save_state(state)
         print(f"[{now_str}] ERROR fetching price: {e}")
