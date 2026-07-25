@@ -17,7 +17,7 @@ LOG_FILE = Path("logs.jsonl")
 RISK_PROFILES = {"ultra_safe": 5, "safe": 10, "moderate": 20}
 
 CONFIG = {
-    "exchange": os.environ.get("TB_EXCHANGE", "bybit"),
+    "exchange": os.environ.get("TB_EXCHANGE", "kucoin"),
     "pair": os.environ.get("TB_PAIR", "BTC/USDT"),
     "mode": os.environ.get("TB_MODE", "demo"),
     "capital": float(os.environ.get("TB_CAPITAL", "20")),
@@ -95,10 +95,10 @@ def main():
     }
 
     try:
-        price = fetch_price(CONFIG["exchange"], CONFIG["pair"])
+        price = fetch_price(CONFIG["exchange"], CONFIG["pair"])state["last_error"] = None
     except Exception as e:
         log["decision"] = "ERROR"
-        log["error"] = str(e)
+        log["error"] = str(e)state["last_error"] = str(e)[:200]
         log_entry(log)
         save_state(state)
         print(f"[{now_str}] ERROR fetching price: {e}")
