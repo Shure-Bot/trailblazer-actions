@@ -8,8 +8,8 @@
   "losses": 0,
   "trades": [],
   "last_action": "No trades yet.",
-  "last_checked": "2026-07-26T17:28:20.690260+00:00",
-  "next_check_due": "2026-07-26T17:43:20.690260+00:00",
-  "check_count": 36,
+  "last_checked": "2026-07-26T18:35:45.973075+00:00",
+  "next_check_due": "2026-07-26T18:50:45.973075+00:00",
+  "check_count": 37,
   "last_error": null
 }
