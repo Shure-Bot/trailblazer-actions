@@ -1,15 +1,25 @@
 {
-  "phase": "in_position",
-  "low": 64334.8,
-  "high": 65514.7,
-  "entry": 65514.7,
-  "balance": 20.0,
+  "phase": "watching",
+  "low": 63764.0,
+  "high": null,
+  "entry": null,
+  "balance": 19.946555505863568,
   "wins": 0,
-  "losses": 0,
-  "trades": [],
-  "last_action": "BUY at 65514.70 with $2.00 after bounce from low of 64334.80",
-  "last_checked": "2026-07-27T22:30:01.343042+00:00",
-  "next_check_due": "2026-07-27T22:45:01.343042+00:00",
-  "check_count": 51,
+  "losses": 1,
+  "trades": [
+    {
+      "pair": "BTC/USDT",
+      "type": "LOSS",
+      "entry": 65514.7,
+      "exit": 63764.0,
+      "pnl_pct": -2.672,
+      "pnl_dollar": -0.0534,
+      "time": "2026-07-27T23:39:15.511592+00:00"
+    }
+  ],
+  "last_action": "SOLD (LOSS) at 63764.00 (-2.67%, -0.053 USD)",
+  "last_checked": "2026-07-27T23:39:15.511592+00:00",
+  "next_check_due": "2026-07-27T23:54:15.511592+00:00",
+  "check_count": 52,
   "last_error": null
 }
