@@ -1,6 +1,6 @@
 {
   "phase": "watching",
-  "low": 63382.7,
+  "low": 63298.5,
   "high": null,
   "entry": null,
   "balance": 19.946555505863568,
@@ -18,8 +18,8 @@
     }
   ],
   "last_action": "SOLD (LOSS) at 63764.00 (-2.67%, -0.053 USD)",
-  "last_checked": "2026-07-28T01:05:53.687634+00:00",
-  "next_check_due": "2026-07-28T01:20:53.687634+00:00",
-  "check_count": 53,
+  "last_checked": "2026-07-28T04:29:43.558547+00:00",
+  "next_check_due": "2026-07-28T04:44:43.558547+00:00",
+  "check_count": 54,
   "last_error": null
 }
