@@ -62,7 +62,8 @@ def default_state():
 def load_state():
     if STATE_FILE.exists():
         with open(STATE_FILE) as f:
-            state = json.load(f)
+            state = json.load(f)if "portfolio" not in state or not state["portfolio"]:
+            return default_state()
         for p in PORTFOLIO:
             if p["pair"] not in state["portfolio"]:
                 state["portfolio"][p["pair"]] = default_pair_state(p["allocation_pct"])
